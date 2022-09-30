@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+        /*nav*/
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: orangered;
+            color: white;
+        }
+        .brandtitle{
+            font-size: 2rem;
+            margin: .5rem;
+        }
+        .navbar-links ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar-links li{
+            list-style: none;
+        }
+        .navbar-links li a{
+            text-decoration: none;
+            color: white;
+            padding: 1rem;
+            display: block;
+            font-size: 1.2rem;
+        }
+        .navbar-links li:hover{
+            background-color: orange;
+        }
+        .toggle-button{
+            position: absolute;
+            top: .75rem;
+            right: 1rem;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 31px;
+            height: 21px;
+        }
+        .toggle-button .bar{
+            height: 5px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+        @media (max-width: 800px){
+            .toggle-button {
+                display: flex;
+            }
+            .navbar-links{
+               display:none;
+               width: 100%;
+            }
+            .navbar{
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: black;
+            }
+            .navbar-links ul{
+                width: 100%;
+                flex-direction: column;
+            }
+            .navbar-links li{
+                text-align: center;
+            }
+            .navbar-links li a{
+                padding: .5rem 1rem;
+            }
+            .navbar-links.active{
+                display: flex;
+            }
+            .footer{
+                display: flex;
+            }
+        }
+        /* nav end */
+        /* home page ss */
+        .page{
+            width: auto;
+            height: auto;
+            background-color: whitesmoke;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            padding: 100px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: orangered;
+        }
+        .age {
+            font-style: italic;
+            font-size: 35px;
+            padding: 0px;
+            transition: 0.5s;   
+        }
+        .age:hover {
+            -webkit-text-stroke: 1px orangered;
+            color: transparent;
+        }
+        button{
+            padding: 20px;
+            color: orangered;
+            
+        }
+        button:hover{
+           color: white;
+           background-color: orangered;
+        }
+        /* home ends */
+        /* order ss */
+        .box-container .box .cart
+        {
+            color: orangered;
+            padding-right: 0px;
+          
+        }
+        .box-container .box .cart:hover{
+            color: white;
+        }
+        .box-container {
+            background: orangered;
+            --background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+        }
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            gap: 4rem;
+        }
+        .box-container .box {
+            padding: 1rem;
+            text-align: center;
+
+        }
+        .box-container .box img {
+            box-sizing: border-box;
+            height: 10rem;
+            width: 10rem;
+            transition: 5s;
+        }
+        .box-container .box img:hover {
+            transform: scale(1.2);
+        }
+        h3 {
+            color: white;
+            padding: 9px;
+        }
+        .box-container .box button a{
+            text-decoration: none;
+        }
+        .box-container .box .price {
+            color: blue;
+            font-size: 1.5rem;
+            padding: 0rem 0;
+        }
+        .box-container .box .price span {
+            font-size: 1rem;
+            text-decoration: line-through;
+        }
+        /* order ends */
+        /* food options */
+        .h6 {
+            display: flex;
+            padding: 30px;
+            font-size: 30px;
+            justify-content: space-evenly;
+            cursor: pointer;
+
+        }
+        h6:hover{
+            font-size: 30px ;
+        }
+        /* food ends */
+        /* cart ss */
+        h2 button{
+            font-size: 15px;
+            border: 1px solid blue;
+            padding:10px;
+            color: white;
+            background-color: orangered;
+            justify-content: space-around;
+            cursor: pointer;
+            margin: 10px;
+            
+        }
+        h2 button:hover{
+            background-color: white;
+            color: black;
+
+        }
+        /* cart ends */
+        /* title */
+        p {
+            background-color: orangered;
+            color: white;
+            text-align: center;
+            font-size: 2.8rem;
+            padding: 1.5rem;
+            margin: 5px;
+            transition: 0.5s;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        p:hover {
+            -webkit-text-stroke: 1px black;
+            color: transparent;
+            background-color: orange;
+        }
+        /* title ends */
+        /* services */
+        #box {
+            background: url("sev2.PNG") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+        }
+        h5 {
+            padding: 60px;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 30px;
+            color: orangered;
+        }
+       /* services end */
+       /* review */
+       .speed {
+            background-color: orangered;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            gap: 1rem;
+        }
+
+        .speed .can {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h4 {
+            color: white;
+        }
+        /* review ends */
+        .footer{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: red;
+        cursor: pointer;
+      }
+     .footer h4:hover{
+        font-size: 1.2rem;
+      }
+      .ten h1{
+        cursor: pointer;
+        text-align: center;
+      }
+      h4 a {
+        color:white;
+        text-decoration: none;
+        font-size: larger;
+     
+        
+      }
+      @media screen and (max-width: 800px){
+      .footer{
+             display: block;
+             text-align: center;
+        }
+     }
+        /* footer ends */
+
+          @media screen and (max-width: 800px){
+            #ME{
+                background-color: orangered;
+            }
+            .box-container{
+                background-color: orangered;
+            }
+            .can{
+                background-color: orangered;
+            }
+            .page{
+                background-color: orangered;
+                color: white;
+            }
+            #box{
+                background-color: orangered;
+            }
+
+          }
+
+    </style>
+</head>
+
+<body>
+    <!-- nav -->
+    <div>
+        <nav class="navbar">
+            <div class="brandtitle"> FAST FOOD</div>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#order">ORDER</a></li>
+                    <li><a href="#review">REVIEW</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="hp.html">LOGOUT</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- nav ends -->
+        <!-- home page -->
+            <div>
+                <P id="home"> HOME PAGE </P>
+                    <div class="page">
+                        <div class="age">
+                           WELCOME TO FAST FOOD <br> WHERE WE SERVE THE BEST
+                               FAST AND RELIABLE <br>
+                               CHECK OUT FOR MORE <br>
+                              <a href="#services"><button>EXPLORE MORE</button></a> 
+                        </div>
+                       </div>
+                </div>
+                <!-- home page ends -->
+                <!-- order -->
+                <P id="order">ORDER</P>
+                <div class="h6">
+                    <h6>FOOD</h6>
+                    <H6>  SNACKS</H6></a>
+                    <H6>DRINKS</H6>
+                </div>
+                    <div class="box-container">
+                        <div class="box">
+                            <a href="fried.html"><img src="fried.jpg"></a>
+                            <h3> FRIED AND CHICKEN</h3>
+                            <div class="price"> #3500.00 <span>5000.00</span></div>
+                            <h1>0</h1>
+                            <h2> 
+                                <button class="four">-</button> 
+                                <button class="six">+</button> 
+                            </h2>
+                            <button><a href="#" class="cart" > Add To Cart</a></button>
+                        </div>
+                        <div class="box">
+                            <img src="BOLI.jfif" alt="">
+                            <h3>ROASTED PLAINTAIN</h3>
+                            <div class="price">  #3000.00 <span>4500</span></div>
+                            <h1>0</h1>
+                            <h2> 
+                                <button class="four">-</button> 
+                                <button class="six">+</button> 
+                            </h2>
+                            <button><a href="webpage.html" class="cart"> Add To Cart</a></button>
+                        </div>
+                        <div class="box">
+                            <img src="chinese myths.jpg" alt="">
+                            <h3>CHINESE MYTHS</h3>
+                            <div class="price"> #8000 <span>10,000</span></div>
+                            <h1>0</h1>
+                            <h2> 
+                                <button class="four">-</button> 
+                                <button class="six">+</button> 
+                            </h2>
+                            <button><a href="#" class="cart"> Add To Cart</a></button>
+                        </div>
+                        <div class="box">
+                            <img src="pounded yam.jpg" alt="">
+                            <h3>POUNDED YAM& EGUSI</h3>
+                            <div class="price"> #4500 <span>5000</span></div>
+                            <h1>0</h1>
+                            <h2> 
+                                <button class="four">-</button> 
+                                <button class="six">+</button> 
+                            </h2>
+                            <button><a href="#" class="cart"> Add To Cart</a></button>
+                        </div>
+                        <div class="box">
+                            <img src="semo.jfif" alt="">
+                            <h3>SHRIMPS</h3>
+                            <div class="price"> #5000 <span>5500</span></div>
+                            <h1>0</h1>
+                            <h2> 
+                                <button class="four">-</button> 
+                                <button class="six">+</button> 
+                            </h2>
+                            <button><a href="#" class="cart"> Add To Cart</a></button>
+                        </div>
+                        <div class="box">
+                            <img src="jollof 3.jfif" alt="">
+                            <h3>NIGERIA JOLLOF</h3>
+                            <div class="price"> #3500 <span>5000</span></div>
+                            <h7>0</h7>
+                            <h2> 
+                                <button class="seven">-</button> 
+                                <button class="eight">+</button> 
+                            </h2>
+                            <button><a href="#" class="cart"> Add To Cart</a></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- order ends -->
+                <!-- services -->
+                <div>
+                    <P id="services">SERVICES</P>
+                    <div id="box">
+                        <h5> <img src="ser.PNG" width="100px" height="100px"> <br>
+                            OUR SERVICES <BR></BR>
+                            FAST FOOD GIVES THE BEST FOOD SERVICES YOU CAN EVER YOU COULD THINK OF <br>
+                            OUR DELIVRY IS AS FAST AS POSSIBLE!!! BET YOU KNOW THAT <br> </h5>
+
+                    </div>
+                </div>
+                <!-- services ends -->
+                <!-- review -->
+                    <p id="review">REVIEW</p>
+                    <div class="speed">
+
+                        <div class="can">
+                            <img src="review1.JPG" height="400px" width="300px"> <br>
+                            <h4>MY NAME IS ROBISIN FRED <br>
+                                REALLY TRIED FAST FOOD FOR THE FIRST TIME AND IT
+                                WAS COOL </h4>
+                            <H4>GO GET YOUS NOW </H4>
+                            <img src="star1.png" height="50px" width="100px">
+                        </div>
+                        <div class="can">
+                            <img src="review2.JPG" height="400px" width="300px">
+                            <h4>MY NAME IS MICHEAL JHON <br>
+                                FAST FOOD DELIVERY IS THE BEST SERVICES HAVE EVER SEEN
+                                THE FOOD WAS ALSO AWESOME</h4>
+                            <H4>THEY DELIVER NATION WIDE <br>
+                                GO GET YOURS NOW !!</H4>
+                            <img src="star1.png" height="50px" width="100px">
+                        </div>
+                        <div class="can">
+                            <img src="review3.JPG" height="400px" width="300px">
+                            <h4>MY NAME IS RACHEAL <br>
+                                FAST FOOD IS THE ONE OF THE BEST FOOD SERVICES
+                                I HAVE EVER ENCOUNTERED FAST AND RELIABLE
+                                SUCH <br> A GREAT APP</h4>
+                            <img src="star1.png" height="50px" width="100px">
+                        </div>
+                    </div>
+                    <!-- review ends -->
+                    <!-- footer -->
+                    <div class="footer">
+                        <div class="ten">
+                            <h1>Our Link</h1> <br>
+                            <h4> <a href="#home"> Home</h4></a> <br>
+                            <h4> <a href="#order"> Order </h4>   </a> <br>
+                            <h4> <a href="#services"> Services</h4> </a> <br>
+                            <h4> <a href="login.html"> Login</h4>  </a> <br>
+                            <h4> <a href="hp.html"> Log Out</h4>  </a> <br>
+                            <h4> <a href="home.html"> View Cart</h4></a> <br>
+                        </div>
+                        <div class="ten">
+                            <h1>Contact Us</h1> <br>
+                            <h4>ADDESS:ISHERI,JANKANDE <br> ESTATE LAGOS</h4> <br>
+                            <h4>PHONE:+234 9160889189</h4><br>
+                            <h4>HOURS:10 00-18 00, MON- SAT</h4>
+                        </div>
+                        <div class="ten">
+                            <h1>Other Links</h1> <br>
+                            <h4>FAQ</h4><br>
+                            <h4>Privacy Policy</h4> <br>
+                            <h4>Terms&Conditions </h4><br>
+                            <h4>Support </h4><br>
+                            <h4>Help</h4>
+                        </div>
+                       
+                <!-- All ends -->
+
+ <script>              
+     let four = document.querySelector(".four"); 
+    let six = document.querySelector(".six");
+    let head = document.querySelector("h1");
+    var count = 0;
+    six.onclick = function (){
+        count++;
+        head.innerHTML = count
+        if (count > 0){
+            head.style.color = "white"
+        } else if (count < 0){
+            head.style.color = "black"
+        } else {head.style.color = "black"}
+    }
+    four.onclick = function (){
+        count --;
+        head.innerHTML = count;
+        if (count > 0){
+            head.style.color = "white"
+        } else if (count < 0){
+            head.style.color = "black"
+        } else {head.style.color= "black"}
+    }
+
+    let toggleButton = document.getElementsByClassName("toggle-button")[0]
+        let navbarLinks = document.getElementsByClassName("navbar-links")[0]
+
+        toggleButton.addEventListener('click', function() {
+            navbarLinks.classList.toggle("active")
+        })
+    let snack= document.getElementById("snack");
+    function openpop(){
+        pop.classList.add("openpop");
+    }
+    function closepop(){
+        pop.classList.remove("openpop");
+    }
+ </script>
+</body>
+</html>
